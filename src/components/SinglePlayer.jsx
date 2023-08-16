@@ -14,30 +14,29 @@ export default function SinglePlayer () {
           async function receiveSinglePlayer() {
             const APIData = await fetchSinglePlayer(id)
             if (APIData.success) {
-              setPlayer(APIData.data.players)
+              setPlayer(APIData.data.player)
             } else {
               setError(APIData.error.message)
             }
           }
           receiveSinglePlayer()
-},[])
+},[id])
 
 console.log(player)
     return(
-    <>  
-    <h2></h2>
-    <div>
-        {player.map((player) => {
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <div>
-              <h4 key={player.id}>{player.breed}</h4>
-              
-            </div>
-          )
-        })}
+      <>
+      <h2>Player Details</h2>
+      <div>
+        {player && (
+          <div>
+            <h4>{player.name}</h4>
+            <img src={player.imageUrl} alt={player.name} />
+            <h4></h4>
+          </div>
+        )}
+        {error && <p>{error}</p>}
       </div>
-    </>  
+    </> 
 
     )
     }

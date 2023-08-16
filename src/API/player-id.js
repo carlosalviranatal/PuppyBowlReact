@@ -5,7 +5,7 @@ export async function fetchSinglePlayer (playerId) {
     try {
       const response = await fetch(`${baseUrl}/${playerId}`)
       const player = await response.json()
-      return player.data.players
+      return player
     } catch (err) {
       console.error(`Oh no, trouble fetching player #${playerId}!`, err)
     }
