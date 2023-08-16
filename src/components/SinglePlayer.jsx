@@ -1,30 +1,28 @@
-import { useParams } from "react-router-dom"
-import { useEffect } from "react"
-import { useState } from "react"
-import { fetchSinglePlayer } from "../API/player-id"
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { fetchSinglePlayer } from '../API/player-id'
 
+export default function SinglePlayer() {
+  let { id } = useParams()
+  const [player, setPlayer] = useState([])
+  // eslint-disable-next-line no-unused-vars
+  const [error, setError] = useState(null)
 
-export default function SinglePlayer () {
-    let { id } = useParams()
-    const [player, setPlayer] = useState([])
-    // eslint-disable-next-line no-unused-vars
-    const [error, setError] = useState(null)
+  useEffect(() => {
+    async function receiveSinglePlayer() {
+      const APIData = await fetchSinglePlayer(id)
+      if (APIData.success) {
+        setPlayer(APIData.data.player)
+      } else {
+        setError(APIData.error.message)
+      }
+    }
+    receiveSinglePlayer()
+  }, [id])
 
-        useEffect(() => {
-          async function receiveSinglePlayer() {
-            const APIData = await fetchSinglePlayer(id)
-            if (APIData.success) {
-              setPlayer(APIData.data.player)
-            } else {
-              setError(APIData.error.message)
-            }
-          }
-          receiveSinglePlayer()
-},[id])
-
-console.log(player)
-    return(
-      <>
+  return (
+    <>
       <h2>Player Details</h2>
       <div>
         {player && (
@@ -37,7 +35,6 @@ console.log(player)
         )}
         {error && <p>{error}</p>}
       </div>
-    </> 
-
-    )
-    }
+    </>
+  )
+}
