@@ -3,6 +3,7 @@ const cohortName = '2305-FTB-ET-WEB-PT'
 const baseURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players`
 
 export default function NewPlayerForm() {
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState(null)
   const [name, setName] = useState('')
   const [breed, setBreed] = useState('')
