@@ -51,7 +51,7 @@ export default function NewPlayerForm() {
           <label>Status: </label>
           <input
             type="text"
-            value={status}
+            value={status.toLowerCase()}
             placeholder="Bench/Field"
             onChange={(e) => setStatus(e.target.value)}
           />
