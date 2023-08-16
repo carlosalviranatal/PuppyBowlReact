@@ -29,9 +29,10 @@ console.log(player)
       <div>
         {player && (
           <div>
-            <h4>{player.name}</h4>
+            <h3>{player.name}</h3>
             <img src={player.imageUrl} alt={player.name} />
-            <h4></h4>
+            <h4>Breed: {player.breed}</h4>
+            <h4>Status: {player.status}</h4>
           </div>
         )}
         {error && <p>{error}</p>}
