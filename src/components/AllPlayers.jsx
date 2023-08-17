@@ -32,6 +32,8 @@ export default function AllPlayers() {
   const handlePlayerDelete = (playerId) => {
     setPlayers(players.filter((player) => player.id !== playerId))
   }
+
+
   return (
     <>
       <h1>All Players</h1>
@@ -46,6 +48,8 @@ export default function AllPlayers() {
           />
         </label>
       </div>
+
+  
 
       <div>
         {playersToDisplay.map((player) => (

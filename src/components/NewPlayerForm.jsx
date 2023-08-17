@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 const cohortName = '2305-FTB-ET-WEB-PT'
 const baseURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/players`
 
@@ -9,6 +10,7 @@ export default function NewPlayerForm() {
   const [breed, setBreed] = useState('')
   const [status, setStatus] = useState('')
   const [imageURL, setImageURL] = useState('')
+  const navigate = useNavigate()
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -24,6 +26,9 @@ export default function NewPlayerForm() {
 
       const result = await APIresponse.json()
       console.log(result)
+      if (result.success) {
+        navigate('/');
+      }
     } catch (error) {
       setError(error)
     }

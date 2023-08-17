@@ -5,6 +5,7 @@ export default function NavBar() {
     <>
       <div id="navbar">
         <Link to="/">Home</Link>
+        <Link to="/NewPlayer">Add New Player!</Link>
       </div>
     </>
   )
