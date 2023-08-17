@@ -35,14 +35,14 @@ export default function AllPlayers() {
 
 
   return (
-    <>
-      <h1>All Players</h1>
+    <div className='all-players-container'>
+      <h1>Puppy Bowl</h1>
       <div>
-        <label>
+        <label className='search-bar'>
           Search
           <input
             type="text"
-            placeholder="search"
+            placeholder=""
             value={searchParam}
             onChange={(e) => setSearchParam(e.target.value)}
           />
@@ -51,9 +51,9 @@ export default function AllPlayers() {
 
   
 
-      <div>
+      <div className='players-list'>
         {playersToDisplay.map((player) => (
-          <div key={player.id}>
+          <div key={player.id} className='player-name'>
             <h4>{player.name}</h4>
             <button onClick={() => navigate(`/${player.id}`)}>
               See Details!
@@ -62,6 +62,6 @@ export default function AllPlayers() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   )
 }

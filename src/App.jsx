@@ -12,7 +12,7 @@ function App() {
         <NavBar />
       </nav>
       <Routes>
-        <Route path="/NewPlayer" element={<NewPlayerForm/>} />
+        <Route path="/NewPlayer" element={<NewPlayerForm />} />
         <Route path="/" element={<AllPlayers />} />
         <Route path="/:id" element={<SinglePlayer />} />
       </Routes>
