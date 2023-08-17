@@ -27,7 +27,7 @@ export default function NewPlayerForm() {
       const result = await APIresponse.json()
       console.log(result)
       if (result.success) {
-        navigate('/');
+        navigate('/')
       }
     } catch (error) {
       setError(error)
@@ -57,7 +57,7 @@ export default function NewPlayerForm() {
           <input
             type="text"
             value={status.toLowerCase()}
-            placeholder="Bench/Field"
+            placeholder="**Can only be bench or field**"
             onChange={(e) => setStatus(e.target.value)}
           />
           <label>imageURL: </label>

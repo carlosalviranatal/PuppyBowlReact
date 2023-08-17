@@ -22,11 +22,11 @@ export default function SinglePlayer() {
   }, [id])
 
   return (
-    <>
+    <div className='single-player-container'>
       <h2>Player Details</h2>
       <div>
         {player && (
-          <div>
+          <div className='player-details'>
             <h3>{player.name}</h3>
             <img src={player.imageUrl} alt={player.name} />
             <h4>Breed: {player.breed}</h4>
@@ -35,6 +35,6 @@ export default function SinglePlayer() {
         )}
         {error && <p>{error}</p>}
       </div>
-    </>
+    </div>
   )
 }
